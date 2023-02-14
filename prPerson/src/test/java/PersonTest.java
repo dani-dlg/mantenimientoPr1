@@ -72,15 +72,16 @@ public class PersonTest {
         assertArrayEquals(obtainedValue, expectedValue);
     }
 
+    @Test
     public void averageOfMultipleMalesAndFemales() {
         List<Person> persons = new ArrayList<>();
         persons.add(new Person("Elena", 20, "Female"));
         persons.add(new Person( "Miguel", 30, "Male"));
         persons.add(new Person( "Martina", 30, "Female"));
         persons.add(new Person("Antonio", 20, "Male"));
-        persons.add(new Person("Daniel", 25, "Male"));
+        persons.add(new Person("Daniel", 22, "Male"));
         double[] obtainedValue = p.averageAgePerGender(persons);
-        double[] expectedValue = {25,25};
+        double[] expectedValue = {24,25};
         assertArrayEquals(obtainedValue, expectedValue);
     }
 

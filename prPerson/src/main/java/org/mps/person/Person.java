@@ -15,8 +15,8 @@ public class Person {
 
     /**
      * Constructs a person with a name, age and gender
-     * @param name the name of the person
-     * @param age the age of the person
+     * @param name the name of the person, cannot be null
+     * @param age the age of the person, must be positive
      * @param gender the gender of the person, must be set to Male or Female
      */
     public Person(String name, int age, String gender) {
