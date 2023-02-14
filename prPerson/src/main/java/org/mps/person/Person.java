@@ -17,9 +17,13 @@ public class Person {
      * Constructs a person with a name, age and gender
      * @param name the name of the person
      * @param age the age of the person
-     * @param gender the gender of the person
+     * @param gender the gender of the person, must be set to Male or Female
      */
     public Person(String name, int age, String gender) {
+        if (name == null) throw new IllegalArgumentException("The name of a person cannot be null");
+        if (age < 0) throw new IllegalArgumentException("The age of a person cannot be negative");
+        if (gender == null || (!gender.equals("Male") && !gender.equals("Female")))
+            throw new IllegalArgumentException("The gender of a person must be equal to Male or Female");
         this.name = name;
         this.age = age;
         this.gender = gender;
