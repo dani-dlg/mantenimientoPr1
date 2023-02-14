@@ -44,9 +44,11 @@ public class Person {
     /**
      * Computes the average age of male and female persons in a list and returns the
      * result in an array of two elements, where the first element is the male mean age
-     * and the second one is the female mean age
-     * @param persons
-     * @return
+     * and the second one is the female mean age. If there are no male persons on the list
+     * the first element of the array will be -1, If there are no female persons on the list
+     * the second element of the array will be -1
+     * @param persons A list of people
+     * @return A 2 element array containing the average age of male and female people
      */
     public double[] averageAgePerGender(List<Person> persons) {
         double maleAgeSum = 0, femaleAgeSum = 0;

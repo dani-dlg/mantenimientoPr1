@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonTest {
 
-
     private Person p;
 
     @BeforeEach
@@ -70,6 +69,18 @@ public class PersonTest {
         persons.add(new Person( "Martina", 30, "Female"));
         double[] obtainedValue = p.averageAgePerGender(persons);
         double[] expectedValue = {20,30};
+        assertArrayEquals(obtainedValue, expectedValue);
+    }
+
+    public void averageOfMultipleMalesAndFemales() {
+        List<Person> persons = new ArrayList<>();
+        persons.add(new Person("Elena", 20, "Female"));
+        persons.add(new Person( "Miguel", 30, "Male"));
+        persons.add(new Person( "Martina", 30, "Female"));
+        persons.add(new Person("Antonio", 20, "Male"));
+        persons.add(new Person("Daniel", 25, "Male"));
+        double[] obtainedValue = p.averageAgePerGender(persons);
+        double[] expectedValue = {25,25};
         assertArrayEquals(obtainedValue, expectedValue);
     }
 
