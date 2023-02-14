@@ -1,10 +1,20 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mps.person.Person;
+import java.util.List;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonTest {
 
+
+    private Person p;
+
+    @BeforeEach
+    public void setup() {
+        p = new Person("Lucas", 21, "Male");
+    }
     @Test
     public void personNameCannotBeNull() {
         assertThrows(IllegalArgumentException.class, () -> new Person(null, 20, "Male"));
@@ -23,6 +33,44 @@ public class PersonTest {
     @Test
     public void personGenderCannotBeNull() {
         assertThrows(IllegalArgumentException.class, () -> new Person("Daniel", 20, null));
+    }
+
+    @Test
+    public void averageOfEmptyListIsNegativeOne() {
+        List<Person> persons = new ArrayList<>();
+        double[] obtainedValue = p.averageAgePerGender(persons);
+        double[] expectedValue = {-1,-1};
+        assertArrayEquals(obtainedValue, expectedValue);
+    }
+
+    @Test
+    public void averageOfListWithNoMales() {
+        List<Person> persons = new ArrayList<>();
+        persons.add(new Person("Elena", 20, "Female"));
+        persons.add(new Person( "Martina", 30, "Female"));
+        double[] obtainedValue = p.averageAgePerGender(persons);
+        double[] expectedValue = {-1,25};
+        assertArrayEquals(obtainedValue, expectedValue);
+    }
+
+    @Test
+    public void averageOfListWithNoFemales() {
+        List<Person> persons = new ArrayList<>();
+        persons.add(new Person("Antonio", 20, "Male"));
+        persons.add(new Person( "Miguel", 30, "Male"));
+        double[] obtainedValue = p.averageAgePerGender(persons);
+        double[] expectedValue = {25,-1};
+        assertArrayEquals(obtainedValue, expectedValue);
+    }
+
+    @Test
+    public void averageOfListWithOneMaleAndOneFemale() {
+        List<Person> persons = new ArrayList<>();
+        persons.add(new Person("Antonio", 20, "Male"));
+        persons.add(new Person( "Martina", 30, "Female"));
+        double[] obtainedValue = p.averageAgePerGender(persons);
+        double[] expectedValue = {20,30};
+        assertArrayEquals(obtainedValue, expectedValue);
     }
 
 

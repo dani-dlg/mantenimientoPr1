@@ -60,8 +60,8 @@ public class Person {
                 femaleCount++;
             }
         }
-        double maleAgeAverage = maleAgeSum / maleCount;
-        double femaleAgeAverage = femaleAgeSum / femaleCount;
+        double maleAgeAverage = maleCount == 0? -1 : maleAgeSum / maleCount;
+        double femaleAgeAverage = femaleCount == 0? -1 : femaleAgeSum / femaleCount;
         return new double[]{maleAgeAverage, femaleAgeAverage};
     }
 }
