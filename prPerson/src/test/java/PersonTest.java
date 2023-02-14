@@ -20,6 +20,14 @@ public class PersonTest {
     }
 
     @Test
+    public void getNameReturnsTheName() {
+        Person person = new Person("Laura", 36, "Female");
+        String obtainedValue = person.getName();
+        String expectedValue = "Laura";
+        assertEquals(obtainedValue, expectedValue);
+    }
+
+    @Test
     public void personAgeCannotBeNegative() {
         assertThrows(IllegalArgumentException.class, () -> new Person("Daniel", -1, "Male"));
     }
