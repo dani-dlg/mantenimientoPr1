@@ -6,8 +6,25 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit tests for the Person class
+ * @author Daniel de Lizaur
+ *
+ * Tests the following behaviours of the Person claas:
+ * - A person's name cannot be null
+ * - A person's age cannot be negative
+ * - A person's gender cannot be null and must also be equal to either "Male" or "Female"
+ * Trying to instantiate a Person with invalid arguments will raise an Exception
+ *
+ * This class also test the method averageAgePerGender on the following scenarios:
+ * - On a list with no male people, the first element of the returned array must be -1
+ * - On a list with no female people, the second element of the returned array must be -1
+ * - On an empty list, both elements of the returned array must be -1
+ * - Otherwise, the first element of the returned array is the average age of every male person, and the second element is the average age of every female person
+ */
 public class PersonTest {
 
+    // placeholder Person instance used to test the averageAgePerGender method
     private Person p;
 
     @BeforeEach
